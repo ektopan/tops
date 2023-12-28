@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apresentacao-teste
+  namespace: apresentacao
+  labels:
+    app: apresentacao-teste
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apresentacao-teste
+  template:
+    metadata:
+      labels:
+        app: apresentacao-teste
+    spec:
+      containers:
+      - name: apresentacao-teste
+        image: paulbouwer/hello-kubernetes:1.10
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: MESSAGE
+          value: "Cluster K3S - apresentacao-teste"
