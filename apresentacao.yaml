@@ -25,3 +25,9 @@ spec:
         env:
         - name: MESSAGE
           value: "Cluster K3S - apresentacao-teste"
+        - name: ADMIN_USER
+          valueFrom:
+            secretKeyRef:
+              key: sample-secret
+              name: teste-secret-app
+
