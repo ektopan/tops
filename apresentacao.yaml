@@ -24,7 +24,10 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
         - name: MESSAGE
-          value: "Cluster K3S - apresentacao-teste"
+          valueFrom:
+            secretKeyRef:
+              name: teste-secret-app
+              value: sample-secret
         #- name: ADMIN_USER
         #  valueFrom:
         #    secretKeyRef:
