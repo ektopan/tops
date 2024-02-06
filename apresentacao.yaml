@@ -27,7 +27,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: teste-secret-app
-              value: sample-secret
+              key: sample-secret
         #- name: ADMIN_USER
         #  valueFrom:
         #    secretKeyRef:
