@@ -2,32 +2,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: apresentacao-teste
-  namespace: apresentacao
+  name: apresentacao-teste-topan
+  namespace: cloudops
   labels:
-    app: apresentacao-teste
+    app: apresentacao-teste-topan
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: apresentacao-teste
+      app: apresentacao-teste-topan
   template:
     metadata:
       labels:
-        app: apresentacao-teste
+        app: apresentacao-teste-topan
     spec:
       containers:
-      - name: apresentacao-teste
-        image: paulbouwer/hello-kubernetes:1.10
+      - name: apresentacao-teste-topan
+        image: 536366201554.dkr.ecr.us-east-1.amazonaws.com/apresentacao-teste-topan:latest
         ports:
         - containerPort: 8080
         imagePullPolicy: IfNotPresent
         env:
+        env:
         - name: MESSAGE
-          valueFrom:
-            secretKeyRef:
-              name: teste-secret-app
-              key: sample-secret
+          value: "Cluster K3S - apresentacao-teste"
+        #- name: MESSAGE
+        #  valueFrom:
+        #    secretKeyRef:
+        #      name: teste-secret-app
+        #      key: sample-secret
         #- name: ADMIN_USER
         #  valueFrom:
         #    secretKeyRef:
