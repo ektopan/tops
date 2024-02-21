@@ -18,10 +18,10 @@ spec:
     spec:
       containers:
       - name: apresentacao-teste-topan
-        image: 536366201554.dkr.ecr.us-east-1.amazonaws.com/apresentacao-teste-topan:latest
+        image: '536366201554.dkr.ecr.us-east-1.amazonaws.com/apresentacao-teste-topan:latest'
         ports:
         - containerPort: 8080
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         env:
         env:
         - name: MESSAGE
